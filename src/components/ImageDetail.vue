@@ -10,7 +10,6 @@
 </template>
 
 <script>
-import { imageDetails } from '../store/api'
 import humanize from 'humanize'
 
 export default {
@@ -32,7 +31,7 @@ export default {
       var namespace = this.$route.params.namespace
       var name = this.$route.params.name
       var tag = this.$route.params.tag
-      imageDetails(namespace, name, tag).then(image => {
+      this.$registry.imageDetails(namespace, name, tag).then(image => {
         this.image = image
         this.size = humanize.filesize(image.size)
       })

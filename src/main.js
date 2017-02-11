@@ -9,6 +9,8 @@ import App from './App'
 import Vuex from 'vuex'
 import router from './router'
 import VueResource from 'vue-resource'
+import Registry from './api/registry'
+var registry = new Registry()
 
 Vue.use(VueResource)
 Vue.use(Vuex)
@@ -17,6 +19,7 @@ Vue.use(Vuex)
 new Vue({
   el: '#app',
   router,
+  registry,
   template: '<App/>',
   components: { App }
 })

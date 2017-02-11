@@ -7,7 +7,6 @@
 </template>
 
 <script>
-import { listTags } from '../store/api'
 import ImageDetail from 'components/ImageDetail'
 
 export default {
@@ -27,7 +26,7 @@ export default {
     fetchTags () {
       var namespace = this.$route.params.namespace
       var name = this.$route.params.name
-      listTags(namespace, name).then(tags => {
+      this.$registry.listTags(namespace, name).then(tags => {
         this.images = tags.map(tag => { return { namespace, name, tag } })
       })
     }

@@ -9,7 +9,6 @@
 
 <script>
 import _ from 'underscore'
-import { listRepositories } from '../store/api'
 import RepoList from 'components/RepoList'
 
 export default {
@@ -27,7 +26,7 @@ export default {
   },
   methods: {
     fetchRepo () {
-      listRepositories().then(repos => {
+      this.$registry.listRepositories().then(repos => {
         var groupedRepos = _.groupBy(repos, 'namespace')
         this.groupedRepos = groupedRepos
       })
